@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: #0a0a0a;
+    height: 100vh;
+}
+
+.container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button,
+select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button:hover,
+select:hover {
+    background-color: #0056b3;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+}
+
+select {
+    background-color: #f7f9fc;
+    color: #333;
+    width: 150px;
+}
+
+
+#sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #f7f9fc;
+    color: #333;
+    outline: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cell:focus {
+    background-color: #e7f0ff !important;
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.cell.readonly {
+    background-color: #959697;
+    color: #333;
+    font-weight: bold;
+}
+
+.cell.error {
+    background-color: #f30f22 !important;
+    border-color: #830613;
+    color: #ffffff;
+}
+
+
+.cell.highlight {
+    background-color: rgba(221, 208, 208, 0.5) !important;
+    color: #0a0a0a;
+}
+
+
+#leaderboard-list {
+    max-height: 400px;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+}
+
+#leaderboard-list li {
+    font-size: 1rem;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+#leaderboard-list li:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+#status .status-item span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-top: 30px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    #sudoku-grid {
+        grid-template-columns: repeat(9, 1fr);
+        gap: 1px;
+    }
+
+    .cell {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    #settings {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@keyframes highlightWave {
+    0% {
+        background-color: rgba(221, 208, 208, 0.5);
+        box-shadow: 0 0 10px rgba(221, 208, 208, 0.5), 0 0 20px rgba(221, 208, 208, 0.6);
+    }
+
+    50% {
+        background-color: rgba(221, 208, 208, 0.8);
+        box-shadow: 0 0 20px rgba(221, 208, 208, 0.7), 0 0 40px rgba(221, 208, 208, 0.9);
+    }
+
+    100% {
+        background-color: rgba(221, 208, 208, 0.5);
+        box-shadow: 0 0 10px rgba(221, 208, 208, 0.5), 0 0 20px rgba(221, 208, 208, 0.6);
+    }
+}
+
+#number-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.number-btn {
+    font-size: 1.2rem;
+    margin: 5px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.number-btn:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
